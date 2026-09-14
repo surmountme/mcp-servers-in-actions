@@ -1,17 +1,18 @@
 [project]
 name = "weather-mcp-servers"
 version = "0.1.0"
-description = "支持天气预报的MCP Server"
-readme = "README.md"
-authors = [
-    { name = "surpassme", email = "surpassmebyme@gmail.com" }
-]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=2.2.0",
+    "pydantic>=2.13.5",
+]
 
-[project.scripts]
-weather-mcp-servers = "weather_mcp_servers:main"
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
 
-[build-system]
-requires = ["uv_build>=0.12.7,<0.13.0"]
-build-backend = "uv_build"
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
