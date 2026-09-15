@@ -25,7 +25,7 @@ async def search_location(city: str, country_code: str = "CN") -> Dict[str, List
     return await app.weather_tools.search_location(city=city, country_code=country_code)
 
 
-# @mcp.tool()
+@mcp.tool()
 async def get_weather(city: str, days: int = 7, country_code: str = "CN") -> Dict[str, Any]:
     """
     通过城市名称获取当前天气和未来几天的天气预报
@@ -43,5 +43,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    # main()
-    get_weather(city="shanghai")
+    main()

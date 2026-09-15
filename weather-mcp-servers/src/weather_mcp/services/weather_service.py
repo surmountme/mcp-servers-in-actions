@@ -19,11 +19,11 @@ class WeatherService():
 
     async def get_forecast(self, city: str, *, count: int = 10, language: str = "en", format: str = "json", country_code: str = "CN", days: int = 7) -> WeatherForecast:
 
-        locations = await self.search_location(name=city, count=count, language=language, format=format, country_code=country_code)
-        print(f"locations:{locations}")
+        locations = await self.search_location(city=city, count=count, language=language, format=format, country_code=country_code)
+
         if not locations:
             raise LocationNotFoundError(f"查找 {city} 位置失败")
 
-        # for location in locations:
-        # if location.country_code == country_code and city.lower() == location.name.lower() and location.admin2.lower().__contains__(city.lower()):
-        return await self._weather.forecast(location=locations[0], days=days)
+        for location in locations:
+            if location.country_code == country_code and city.lower() == location.name.lower() and location.admin2.lower().__contains__(city.lower()):
+                return await self._weather.forecast(location=locations[0], days=days)
