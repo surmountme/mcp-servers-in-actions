@@ -1,4 +1,4 @@
-from typing import Dict,Any
+from typing import Dict, Any
 
 import httpx
 
@@ -7,18 +7,20 @@ from weather_mcp.models.exceptions import ProviderError
 
 class OpenMeteoClient():
 
-    def __init__(self, *, timeout: float = 30.0) -> None:
+    def __init__(self, *, timeout: float = 30.0, follow_redirects: bool = True, verify: bool = False) -> None:
         self._client = httpx.AsyncClient(
             headers={
                 "User-Agent": "weather-mcp-servers/0.1.0"
             },
-            timeout=timeout
+            timeout=timeout,
+            follow_redirects=follow_redirects,
+            verify=verify
         )
 
-    async def get(self,url:str,*,params:Dict[str,Any])->Dict[str,Any]:
+    async def get(self, url: str, *, params: Dict[str, Any]) -> Dict[str, Any]:
 
         try:
-            response=await self._client.get(url=url,params=params)
+            response = await self._client.get(url=url, params=params)
         except httpx.HTTPError as ex:
             raise ProviderError(f"请求 OpenMeteo 失败：{ex}")
 
@@ -27,5 +29,5 @@ class OpenMeteoClient():
         except ValueError as ex:
             raise ProviderError(f"OpenMeteo返回的数据不是JSON格式")
 
-    async def close(self)->None:
+    async def close(self) -> None:
         await self._client.aclose()
