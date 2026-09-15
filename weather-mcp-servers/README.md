@@ -101,5 +101,3 @@ weather-mcp-servers: http://127.0.0.1:20149/mcp (HTTP) - ✔ Connected
 - 3.调用MCP Server
 
 ![03-在Agent中调用MCPServer](./docs/images/03-在Agent中调用MCPServer.png)
-
-![alt text](image.png)
