@@ -1,6 +1,6 @@
 from abc import ABC,abstractmethod
 
-from weather_mcp.domain.models import (Location,WeatherForecast)
+from weather_mcp.models.models import (Location,WeatherForecast)
 
 class WeatherProvider(ABC):
 

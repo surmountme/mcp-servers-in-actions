@@ -1,6 +1,6 @@
 from typing import List
-from src.weather_mcp.application.weather_service import WeatherService
-from src.weather_mcp.domain.models import (
+from src.weather_mcp.services.weather_service import WeatherService
+from src.weather_mcp.models.models import (
     CurrentWeather,
     DailyWeather,
     Location,

@@ -1,5 +1,7 @@
+from typing import Dict
 
-WEATHER_CODES: dict[int, str] = {
+
+WEATHER_CODES: Dict[int, str] = {
     0: "Clear sky",
 
     1: "Mainly clear",
@@ -16,12 +18,12 @@ WEATHER_CODES: dict[int, str] = {
     56: "Light freezing drizzle",
     57: "Dense freezing drizzle",
 
-    61: "Slight rain",
-    63: "Moderate rain",
-    65: "Heavy rain",
+    61: "Slight intensity rain",
+    63: "Moderate intensity rain",
+    65: "Heavy intensity rain",
 
-    66: "Light freezing rain",
-    67: "Heavy freezing rain",
+    66: "Light intensity rain",
+    67: "Heavy intensity rain",
 
     71: "Slight snow fall",
     73: "Moderate snow fall",
@@ -44,7 +46,4 @@ WEATHER_CODES: dict[int, str] = {
 
 
 def describe_weather_code(code: int) -> str:
-    return WEATHER_CODES.get(
-        code,
-        "Unknown weather condition",
-    )
+    return WEATHER_CODES.get(code,"Unknown weather condition")

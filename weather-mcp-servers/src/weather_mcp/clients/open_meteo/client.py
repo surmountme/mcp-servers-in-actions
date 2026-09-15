@@ -2,7 +2,7 @@ from typing import Dict,Any
 
 import httpx
 
-from weather_mcp.domain.exceptions import ProviderError
+from weather_mcp.models.exceptions import ProviderError
 
 
 class OpenMeteoClient():
@@ -20,7 +20,7 @@ class OpenMeteoClient():
         try:
             response=await self._client.get(url=url,params=params)
         except httpx.HTTPError as ex:
-            raise ProviderError(f"请求OpenMeteo失败：{ex}")
+            raise ProviderError(f"请求 OpenMeteo 失败：{ex}")
 
         try:
             return response.json()

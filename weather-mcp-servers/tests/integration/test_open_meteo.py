@@ -1,6 +1,6 @@
-from src.weather_mcp.infrastructure.open_meteo.client import OpenMeteoClient
-from src.weather_mcp.infrastructure.open_meteo.geocoding import OpenMeteoGeocoding
-from src.weather_mcp.infrastructure.open_meteo.weather import OpenMeteoWeather
+from src.weather_mcp.clients.open_meteo.client import OpenMeteoClient
+from src.weather_mcp.clients.open_meteo.geocoding import OpenMeteoGeocoding
+from src.weather_mcp.clients.open_meteo.weather import OpenMeteoWeather
 
 
 async def test_open_meteo():

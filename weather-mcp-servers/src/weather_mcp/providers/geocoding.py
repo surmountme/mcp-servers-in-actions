@@ -1,11 +1,12 @@
 from typing import List
-from abc import ABC,abstractmethod
+from abc import ABC, abstractmethod
 
-from weather_mcp.domain.models import Location
+from weather_mcp.models.models import Location
+
 
 class GeocodingProvider(ABC):
 
     @abstractmethod
-    async def search(self,name:str,*,count:int=5,language:str="en",format:str="json")->List[Location]:
-        """根据名字搜索经纬度"""
+    async def search(self, name: str, *, count: int = 10, language: str = "en", format: str = "json", country_code: str = "CN") -> List[Location]:
+        """获取城市的经纬度信息"""
         raise NotImplementedError
