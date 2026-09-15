@@ -1,6 +1,6 @@
 # mcp-servers-in-actions
 
-&emsp; &emsp; 该仓库是日常在学习 MCP Server相关知识，实战化的仓库。
+&emsp; &emsp; 该仓库是日常在学习 MCP Server相关知识时实战化的仓库。
 
 ## 1. weather-mcp-server
 
